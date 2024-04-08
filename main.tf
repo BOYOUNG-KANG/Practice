@@ -13,3 +13,6 @@ module "vpc_module" {
 module "s3_module" {
   source = "./s3"
 }
+module "ec2_module" {
+  source = "./ec2"
+}

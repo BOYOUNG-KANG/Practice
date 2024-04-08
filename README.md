@@ -6,6 +6,7 @@
 - IaC(Infrastructure as code), 말그대로 aws나 azure에서 하던 인프라 구성을 코드로 한다.
 - HashiCorp에서 만들었다.
 - HCL(HashiCorp Configuration Language)이라는 언어 이용해서 테라폼 스크립트 짜고, 명령어 이용해서 코드를 실행하면 테라폼은 코드에 따라 인프라스트럭처를 프로비저닝한다.
+---
 
 ## 📌 terraform command
 ### terraform 주요 명령어
@@ -36,6 +37,7 @@
     # show in graph(you need to install graphviz)
     terraform graph
     terraform graph | dot -Tsvg > sample.svg
+---
 
 ## 📌 구성한 인프라 설명
 ### IAM
@@ -47,3 +49,8 @@
 ### VPC
 - vpc 안에 public subnet과 private subnet으로 구성했다.
 - public subnet은 IGW를 통해 외부와 통신할 수 있고, private subnet에서도 NAT gateway를 통해 IGW로 나갈 수 있도록 구성했다.
+### EC2
+- 그 전에 테라폼으로 생성한 vpc의 public subnet에 우분투로 인스턴스 생성한 후, nginx를 설치했다.
+- 또한 22번(SSH)과 80번(HTTP) 포트에 대한 인바운드 트래픽을 허용하는 보안 그룹을 추가하는 방식으로 ec2를 구성했다.
+
+---
